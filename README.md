@@ -1,2 +1,2 @@
-# gaih_deep_learning
-GlobalAIHub Deep Learning Course Source Codes
+# React Notebook
+A personal notebook for Patika.dev's React Course
