@@ -1,9 +1,8 @@
-const hello = name => { //if only one parameter
+export default (name) => { //no name needed for default
     console.log(`hello ${name}`);//console.log("hello " + name) also for ` altGr + ;
 };
 const topla = (a,b) => a+b; //oneline function
 const cikar = (a,b) => a-b;
-
 
 const text = 'Text lorem ipsum';
 const user = {
@@ -19,4 +18,3 @@ const users = [{
 }];
 
 export {topla,cikar,text,user,users}; //export multiple funcs
-export default hello;
