@@ -1,8 +1,5 @@
-const topla = (a,b) => {
-    return a + b;
-}
-/*function topla(a,b){//const topla = function topla ...
-    return a+b;
-}*/
+export const hello = () => { //export separately
+    console.log("hello");
+};
+export const topla = (a,b) => a+b; //oneline function
 
-export default topla;

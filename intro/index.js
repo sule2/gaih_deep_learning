@@ -1,3 +1,4 @@
-import Topla from "./my-module.js";
+import {hello,topla} from "./my-module.js";//import multiple functions
 
-console.log(Topla(2,4));
+console.log(topla(2,4));
+hello();
