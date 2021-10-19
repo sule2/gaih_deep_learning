@@ -1,0 +1,19 @@
+{
+  "name": "learning-node",
+  "version": "1.0.0",
+  "description": "basics of node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sule2/react-patika-dev.git"
+  },
+  "author": "Sule Dursun <sule.drsn98@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sule2/react-patika-dev/issues"
+  },
+  "homepage": "https://github.com/sule2/react-patika-dev#readme"
+}
