@@ -44,17 +44,21 @@ const getPost = (post_id) => {
     return new Promise(async (resolve,reject) => {
         const {data} = await axios("https://jsonplaceholder.typicode.com/posts/"+post_id);
         resolve(data);
+        //reject("Bir sorun oluştu.");
     });
 };
 
-(async () => {//to print it sequantially
-    await getUsers()
-        .then((data) => console.log(data))
-        .catch((e) => console.log(e));
-    
-    await getPost(1)
-        .then((data) => console.log(data))
-        .catch((e) => console.log(e));
-})();
+/*(async () => {//to print it sequantially
+    try{
+        const users = await getUsers();
+        const post = await getPost(1);
+        console.log(users);
+        console.log(post);
+    }catch(e){
+        console.log(e);
+    }  
+})();*/
 
-
+Promise.all([getUsers(), getPost(1)])
+    .then(console.log)
+    .catch(console.log);
