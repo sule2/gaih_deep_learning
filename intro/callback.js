@@ -23,22 +23,23 @@ fetch("https://jsonplaceholder.typicode.com/users").then(data => data.json()).th
     });
 });//since js is async you have to put it inside to make it sync it literally needs to be fetchception to make it sync
 */
+
 //with async-await we don't need to use fetchception
-async function getData() {
+/*async function getData() {
     const {data: users} = await axios("https://jsonplaceholder.typicode.com/users");//axios returns object then you access to its data
     const {data: post} = await axios("https://jsonplaceholder.typicode.com/posts/1");//since json is gone no need for another await
     console.log("Users loaded",users);
     console.log("Post 1 loaded",post);
 }
-getData();
-/*
-const getData = async() => {//same thing
-    const resUsers = await fetch("https://jsonplaceholder.typicode.com/users");
-    const resPost = await fetch("https://jsonplaceholder.typicode.com/posts/1");
-    const users = await resUsers.json();
-    const post = await resPost.json();
+getData();*/
 
-    console.log("Kullanıcılar yüklendi",users);
-    console.log("Post 1 yüklendi",post);
-}; */
+const getComments = () => {
+    return new Promise((resolve,reject) => {
+        resolve("Comments");//success & it can return object,number,string etc.
+    });
+};
+
+getComments()
+        .then((data) => console.log(data))
+        .catch((e) => console.log(e));
 
