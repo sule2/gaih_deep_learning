@@ -33,16 +33,28 @@ fetch("https://jsonplaceholder.typicode.com/users").then(data => data.json()).th
 }
 getData();*/
 
-const getComments = (condition) => {
-    return new Promise((resolve,reject) => {
-        if(condition===1){
-            resolve("Comments");//success & it can return object,number,string etc.
-        }
-        reject("A problem has accured!");
+const getUsers = () => {
+    return new Promise(async (resolve,reject) => {
+        const {data} = await axios("https://jsonplaceholder.typicode.com/users");//data:users still works
+        resolve(data);
     });
 };
 
-getComments(1)
+const getPost = (post_id) => {
+    return new Promise(async (resolve,reject) => {
+        const {data} = await axios("https://jsonplaceholder.typicode.com/posts/"+post_id);
+        resolve(data);
+    });
+};
+
+(async () => {//to print it sequantially
+    await getUsers()
         .then((data) => console.log(data))
         .catch((e) => console.log(e));
+    
+    await getPost(1)
+        .then((data) => console.log(data))
+        .catch((e) => console.log(e));
+})();
+
 
