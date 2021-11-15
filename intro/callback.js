@@ -13,6 +13,7 @@
     console.log("Haweryu");
  });*/
 import fetch from "node-fetch"; //data fetched from API
+import axios from "axios"; //can replace fetch
 /*fetch("https://jsonplaceholder.typicode.com/users").then(data => data.json()).then((users) => console.log(users));//data to json parsing
 fetch("https://jsonplaceholder.typicode.com/users").then(data => data.json()).then((users) => { //Fetch into fetch after the fetch has completed
     console.log(users); //fetchception
@@ -24,8 +25,8 @@ fetch("https://jsonplaceholder.typicode.com/users").then(data => data.json()).th
 */
 //with async-await we don't need to use fetchception
 async function getData() {
-    const users = await(await fetch("https://jsonplaceholder.typicode.com/users")).json();
-    const post = await(await fetch("https://jsonplaceholder.typicode.com/posts/1")).json();
+    const {data: users} = await axios("https://jsonplaceholder.typicode.com/users");//axios returns object then you access to its data
+    const {data: post} = await axios("https://jsonplaceholder.typicode.com/posts/1");//since json is gone no need for another await
     console.log("Users loaded",users);
     console.log("Post 1 loaded",post);
 }
@@ -40,3 +41,4 @@ const getData = async() => {//same thing
     console.log("Kullanıcılar yüklendi",users);
     console.log("Post 1 yüklendi",post);
 }; */
+
