@@ -33,13 +33,16 @@ fetch("https://jsonplaceholder.typicode.com/users").then(data => data.json()).th
 }
 getData();*/
 
-const getComments = () => {
+const getComments = (condition) => {
     return new Promise((resolve,reject) => {
-        resolve("Comments");//success & it can return object,number,string etc.
+        if(condition===1){
+            resolve("Comments");//success & it can return object,number,string etc.
+        }
+        reject("A problem has accured!");
     });
 };
 
-getComments()
+getComments(1)
         .then((data) => console.log(data))
         .catch((e) => console.log(e));
 
