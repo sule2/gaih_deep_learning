@@ -1,0 +1,24 @@
+{
+  "name": "package",
+  "version": "1.0.0",
+  "description": "\"Introduction to React - Homework\"",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sule2/react-patika-dev.git"
+  },
+  "author": "\"Sule Dursun <sule.drsn98@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sule2/react-patika-dev/issues"
+  },
+  "homepage": "https://github.com/sule2/react-patika-dev#readme",
+  "dependencies": {
+    "axios": "^0.24.0"
+  }
+}
