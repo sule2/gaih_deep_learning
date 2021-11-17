@@ -33,7 +33,11 @@ function App() {
       surname="Sayan" 
       isLoggedIn={true} 
       age={19}
-      friends={friends}/>
+      friends={friends}
+      address={{
+        title: 'Ataşehir/İstanbul',
+        zip: 34755
+      }}/>
     </div>
   );
 }
