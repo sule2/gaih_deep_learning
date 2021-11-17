@@ -8,7 +8,7 @@ const isLoggedIn = true;
 function App() {
   return(
     <div>
-      <User name="Asiye" surname="Sayan" isLoggedIn={false} />
+      <User name="Asiye" surname="Sayan" isLoggedIn={true} age={19}/>
     </div>
   );
 }
