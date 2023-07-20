@@ -1,12 +1,13 @@
+import Home from './components/Home';
 import './App.css';
-import Tasks from './components/Tasks/Tasks';
 
 function App() {
   return (
     <div className="App">
-      <Tasks/>
+      <Home/>
     </div>
   );
 }
 
 export default App;
+

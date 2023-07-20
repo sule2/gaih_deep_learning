@@ -1,6 +1,8 @@
 import {useEffect,useState} from 'react'
-const initialValues = [{task: '', state: 'active'}];
-function TaskForm({tasks, addTasks}) {
+
+const initialValues = {task: '', state: 'active'};
+
+function TaskForm({addTasks,tasks }) {
     const [taskForm,setTaskForm] = useState(initialValues);
     useEffect(() => {
         setTaskForm(initialValues);
@@ -11,7 +13,7 @@ function TaskForm({tasks, addTasks}) {
     const onSubmit = (e) => {
         e.preventDefault();
 
-        if(taskForm.task===''||(taskForm.state===''|| taskForm.state==='active'))
+        if(taskForm.task===''/* ||(taskForm.state==='') */)
         {
             return false;
         }
@@ -27,7 +29,7 @@ function TaskForm({tasks, addTasks}) {
             value={taskForm.task}
             onChange={onChangeInput}/>
             </div>
-            <div>
+            {/* <div>
                 <button className="btn-list-all">All</button>
             </div>
             <div>
@@ -35,6 +37,9 @@ function TaskForm({tasks, addTasks}) {
             </div>
             <div>
                 <button className="btn-list-completed">Completed</button>
+            </div> */}
+            <div>
+                <button className="btn-add-contact">Add Contact</button>
             </div>
             </form>
         </div>
