@@ -1,7 +1,9 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 function Tasks({tasks}) {
-    const[filterState,setFilterState]=useState('all');
+    const[filterState,setFilterState]=useState('');
+    const[newState,setNewState] = useState('');
+    const[taskList,setTasks]=useState(tasks);
     
     const filtered=tasks.filter((item)=>{
         return Object.keys(item).some((key) =>
@@ -9,25 +11,33 @@ function Tasks({tasks}) {
             .includes(filterState.toLowerCase())
         );
     })
+    
 
-    /* useEffect(()=>{
-        console.log(filterState);
-    },[filtered,filterState]) */
+    useEffect(()=>{
+        console.log(filterState !== null ? filterState : 'all');
+    },[tasks])
             /* <select onChange={(e)=>setFilterState(e.target.value)}>
                 <option defaultValue={filterState === 'all' ? 'all':filterState}>{filterState === 'all' ? 'all':filterState} *</option>
                 <option defaultValue={filterState === 'active'} value={'active'}>active</option>
                 <option defaultValue={filterState === 'completed'} value={'completed'}>completed</option>
             </select> */
     return (
-        <div>
+        <section className='main'>
+            <input class="toggle-all" type="checkbox" />{/* no action on event */}
+            <label for="toggle-all">
+                Mark all as complete
+            </label>
             <ul className='todo-list'>
                 {
                     filtered.map((item,index)=>(
-                        <li key={index} className="completed">
+                        <li key={index} className={item.state === 'completed'? 'completed':""}>
                             <div className='view'>
-                                <input className='toggle' type="checkbox" defaultChecked={item.state === 'active'} /* onChange={item.state = 'completed'} *//>
+                                <input className='toggle' type="checkbox" 
+                                    defaultChecked={item.state === 'completed'? true : false} style={{width:"10%",marginLeft:"-17rem"}} 
+                                    onChange={(e)=>{console.log('checkbox change')}}
+                                    />
                                 <label>{item.task}</label>
-                                {/* <button className='destroy' onClick={tasks.splice(index,1)}></button> */}
+                                <button className="destroy" onClick={()=>{tasks.splice(index,1);console.log(filtered)}}></button>
                             </div>
                         </li>
                     ))
@@ -35,31 +45,40 @@ function Tasks({tasks}) {
 
             </ul>
             <footer className="footer">
-                <span className="todo-count">
-                    <strong>{filtered.length}</strong>
+                {/* <span className="todo-count">
+                    <strong>{tasks.length}</strong>
                     items left
-                </span>
+                </span> */}
 
                 <ul className="filters">
                     <li>
-                        <button onClick={setFilterState("all")}>All</button>
-                        {/* <a href="#/" class="selected">All</a> */}
+                        <button onClick={()=>setFilterState("")}>All</button>
                     </li>
                     <li>
-                        <button onClick={setFilterState("active")}>Active</button>
-                        {/* <a href="#/">Active</a> */}
+                        <button onClick={()=>setFilterState("active")}>Active</button>
                     </li>
                     <li>
-                        <button onClick={setFilterState("completed")}>Completed</button>
-                        {/* <a href="#/">Completed</a> */}
+                        <button onClick={()=>setFilterState("completed")}>Completed</button>
                     </li>
                 </ul>
 
-                <button className="clear-completed">
+                <button className="clear-completed"
+                onClick={()=>{
+                    let count = tasks.length;
+                    for(let i=0;i<count;i++){
+                        if(tasks[i].state === 'completed'){
+                          tasks.splice(i,0);
+                          console.log(tasks[i]) 
+                        }
+                        console.log(tasks[i])
+                    }
+                    console.log(tasks);
+                }}
+                >
                     Clear completed
                 </button>
             </footer>
-        </div>
+        </section>
     )
     /* const [tasks,setTask] = useState([
         {

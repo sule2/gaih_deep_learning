@@ -22,14 +22,18 @@ function Home() {
         console.log(tasks);
     }, [tasks])
   return (
-    <div className="App">
+    <div /* className="App" */>
       <section className='todoapp'>
       <h1>Todos</h1>
-      <Tasks tasks={tasks}/>
+      
       <TaskForm addTask={setTask} tasks={tasks}/>
+      <Tasks tasks={tasks}/>
       
       </section>
-      
+      <span className="todo-count">
+                    <strong>{tasks.length}</strong>
+                     items left
+                </span>
     </div>
   );
 }

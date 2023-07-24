@@ -2,7 +2,7 @@ import {useEffect,useState} from 'react'
 
 const initialValues = {task: '', state: 'active'};
 
-function TaskForm({addTasks,tasks }) {
+function TaskForm({addTask,tasks }) {
     const [taskForm,setTaskForm] = useState(initialValues);
     useEffect(() => {
         setTaskForm(initialValues);
@@ -17,18 +17,16 @@ function TaskForm({addTasks,tasks }) {
         {
             return false;
         }
-        addTasks([...tasks,taskForm]);
+        addTask([...tasks,taskForm]);
     };
     return (
         
-        <div>
+        <header className="header">
             <form onSubmit={onSubmit}>
-            <div>
-            <input name="task" 
-            placeholder="Task" 
-            value={taskForm.task}
+            <input name="task" className='new-todo'
+            placeholder="What do I do?" 
+            value={taskForm.task} autoFocus
             onChange={onChangeInput}/>
-            </div>
             {/* <div>
                 <button className="btn-list-all">All</button>
             </div>
@@ -38,11 +36,11 @@ function TaskForm({addTasks,tasks }) {
             <div>
                 <button className="btn-list-completed">Completed</button>
             </div> */}
-            <div>
+            {/* <div>
                 <button className="btn-add-contact">Add Contact</button>
-            </div>
+            </div> */}
             </form>
-        </div>
+        </header>
     )
 }
 
