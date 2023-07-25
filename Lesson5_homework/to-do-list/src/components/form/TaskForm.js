@@ -1,6 +1,6 @@
 import {useEffect,useState} from 'react'
 
-const initialValues = {task: '', state: 'active'};
+const initialValues = {task: '', done: false};
 
 function TaskForm({addTask,tasks }) {
     const [taskForm,setTaskForm] = useState(initialValues);
