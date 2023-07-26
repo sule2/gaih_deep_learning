@@ -5,6 +5,6 @@
 
 ---
 
-### `note`
+#### Note:
 
 This is an example todo project for React Course by patika.dev 's homework.
