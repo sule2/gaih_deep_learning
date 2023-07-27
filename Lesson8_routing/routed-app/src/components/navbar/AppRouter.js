@@ -7,7 +7,7 @@ import {
   Link,
   useLocation
 } from "react-router-dom";
-import MyCompany from '../company/MyCompany';
+import Companies from '../company/MyCompany';
 import MySponsor from '../sponsor/MySponsor';
 import About from '../About';
 
@@ -33,6 +33,10 @@ const router = createBrowserRouter([
       element: <Contact/>,
     },
     {
+        path: "companies",
+        element: <Companies/>,
+      },
+    {
       path: "/login",
       element: <div style={{backgroundColor:"cornsilk"}}> Login</div>,
     },
@@ -49,7 +53,11 @@ export function AppRouter() {
 
 export function Home(){
     return(
-        <div>Home</div>
+        <div>Home <br/> <hr/>
+            <nav style={{lineHeight:"3rem", textAlign:"center"}}>
+                <Link style={{borderStyle:"groove",borderColor:"crimson",borderWidth:"1px",borderRadius:"30%",textDecoration:"none",padding:"1rem"}} to="companies">Company Info</Link>
+            </nav>
+        </div>
     )
 };
 
