@@ -1,0 +1,33 @@
+.active{
+    font-size: larger;
+    flex-grow: 1;
+    text-decoration: none;
+
+}
+
+.pending{
+    color:cornflowerblue;
+    flex-grow: 1;
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+.barContainer{
+    display: flex;
+    border-width: 1px;
+    border-color: darkcyan;
+    background-color: rgba(95, 158, 160, 0.644);
+    padding: 1rem;
+    border-style: ridge;
+    
+    /* flex-wrap: wrap; */
+  }
+  
+  .barItem{
+    flex-grow: 1;
+    text-decoration: none;
+  }
