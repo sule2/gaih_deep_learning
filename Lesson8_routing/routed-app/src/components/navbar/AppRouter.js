@@ -53,10 +53,7 @@ export function AppRouter() {
 
 export function Home(){
     return(
-        <div>Home <br/> <hr/>
-            <nav style={{lineHeight:"3rem", textAlign:"center"}}>
-                <Link style={{borderStyle:"groove",borderColor:"crimson",borderWidth:"1px",borderRadius:"30%",textDecoration:"none",padding:"1rem"}} to="companies">Company Info</Link>
-            </nav>
+        <div style={{padding:"2rem",textAlign:"center",fontSize:"25pt"}}>Home <br/> <hr/>
         </div>
     )
 };
@@ -64,6 +61,7 @@ export function Home(){
 
 export function Contact(){
     return(
-        <div>Contact</div>
+      <div style={{padding:"2rem",textAlign:"center",fontSize:"25pt"}}>Contact <br/> <hr/>
+      </div>
     )
 };
