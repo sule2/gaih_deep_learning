@@ -1,0 +1,9 @@
+.charCheckbox{
+    margin-bottom: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    width: -webkit-fill-available;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
