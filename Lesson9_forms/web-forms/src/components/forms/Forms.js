@@ -8,7 +8,7 @@ function Forms() {
       initialValues={{
         firstName: '',
         lastName: '',
-        email: '',
+        email: ''
       }}
       onSubmit={async (values) => {
         //await new Promise((r) => setTimeout(r, 500));
