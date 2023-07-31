@@ -2,7 +2,7 @@ import { useFormik} from 'formik';
 import styles from './styles.module.css';
 import validationSchema from './Validations';
 function ValidForm() {
-    const /* formik */ {handleChange,handleSubmit,values} = useFormik({
+    const /* formik */ {handleChange,handleSubmit,handleBlur,values,errors,touched} = useFormik({ //blur & touched : show errors after switching to another one
         initialValues:{
             firstName: 'Marry', 
             lastName: 'Jane',
@@ -37,17 +37,36 @@ function ValidForm() {
                     placeholder="jane@acme.com"
                     value={values.email}
                     onChange={handleChange}
+                    onBlur={handleBlur}
                     type="email"
                     />
+                    {
+                      errors.email && touched.email &&
+                      (<div className={styles.errorBox}>
+                        {errors.email}
+                      </div>)
+                    }
                     </div>
 
                     <div style={{marginBottom:"2rem"}}>
                     <label  className={styles.validLabel}>Password : </label>
-                    <input id="password" name="password" type="password" onChange={handleChange} value={values.password} placeholder="" /> {/* name props are the initVal for Formik comp */}
+                    <input id="password" name="password" type="password" onChange={handleChange} onBlur={handleBlur} value={values.password} placeholder="" /> {/* name props are the initVal for Formik comp */}
+                    {
+                      errors.password && touched.password &&
+                      (<div className={styles.errorBox}>
+                        {errors.password}
+                      </div>)
+                    }
                     </div>
                     <div style={{marginBottom:"2rem"}}>
                     <label className={styles.validLabel} >Confirm Password : </label>
-                    <input id="confirmPassword" name="confirmPassword" type="password" onChange={handleChange} value={values.confirmPassword} placeholder="" />
+                    <input id="confirmPassword" name="confirmPassword" type="password" onChange={handleChange} onBlur={handleBlur} value={values.confirmPassword} placeholder="" />
+                    {
+                      errors.confirmPassword && touched.confirmPassword &&
+                      (<div className={styles.errorBox}>
+                        {errors.confirmPassword}
+                      </div>)
+                    }
                     </div>
     
     

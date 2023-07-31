@@ -11,3 +11,8 @@
 .validLabel{
     display: block;
 }
+
+.errorBox{
+    text-shadow: 5px;
+    color:tomato;
+}
