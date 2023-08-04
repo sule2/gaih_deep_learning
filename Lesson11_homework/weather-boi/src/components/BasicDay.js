@@ -19,22 +19,29 @@ function BasicDay() {
     //weatherData? console.log(new Date(weatherData?.dt*1000)) : console.log(Date.now().toISOString()) 
     //console.log(weatherData? new Date(weatherData?.dt*1000).toISOString(): Date.now().toISOString())
   return (
-    <div style={{display:"flex"}}>
+    <div style={{display:"grid"}}>
         <code style={{width:"30rem"}}>{JSON.stringify(weatherData)}</code>
         <br/> <hr/><code style={{width:"30rem"}}>{JSON.stringify(daily)}</code><br/>
-        <Card sx={{ minWidth: "30rem" }}>
+        <Card sx={{ minWidth: "30rem" }} className="card-day">
                 <CardContent>
                 <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom  component="div" className="card-date"/* style={{display:"grid",gridTemplateColumns:"auto auto"}} */>
                   <div className="card-item">
                     {(new Date(weatherData?.dt*1000)).toLocaleDateString()} 
                   </div>
                     <div className="card-item">
-                      {weatherData?.name}
+                      
                     </div>
                     
                 </Typography>
-                <Typography variant="h5" component="div">
-                  <img src={`${process.env.REACT_APP_ICON_URL}/${daily?.icon}.png`} />
+                <Typography /* variant="h5" */ component="div" className="card-date">
+                <div className="card-item"><br/>
+                  <h3 >{weatherData?.name?.toUpperCase()} </h3>
+                  </div>
+                    <div /* className="card-item" */>
+                      <img style={{height:"5rem"}} src={`${process.env.REACT_APP_ICON_URL}/${daily?.icon}.png`} />
+                    </div>
+                  
+                  
                   {/* {daily?.description?.toUpperCase()} {weatherData?.main?.temp} °C  */}
                 </Typography>
                 <Typography variant="h5" component="div">

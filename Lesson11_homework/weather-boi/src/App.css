@@ -45,9 +45,10 @@
 .card{
   border-style: hidden;
   border-width: 1px;
-  border-radius: 5%;
   margin: 2rem 20rem;
-  box-shadow: 3px 1px 7px 3px rgb(88, 48, 33);
+  border-radius: 5%;
+  box-shadow: 2px 1px 13px 0px rgb(88, 48, 33);
+  background: ghostwhite;
 }
 
 .card-date{
@@ -60,4 +61,11 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+
+.card-day{
+  border-radius: 5% !important;
+  box-shadow: -13px 2px 5px 1px rgba(0,0,0,0.2), -8px -4px 1px 0px rgba(0,0,0,0.14), 1px 0px 11px 0px rgba(0,0,0,0.12) !important;
+  background: ghostwhite !important;
+  max-width: 30rem;
 }
